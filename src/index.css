@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* * {
+    outline: 1px solid red;
+    outline-offset: -1px;
+  } */
+  body {
+    @apply antialiased font-body font-bold;
+    background-image: url('./src/assets/marcus-urbenz-eboWHl-Jf6g-unsplash.jpg');
+    background-position: 50% 0;
+  }
+}
+
+@layer components {
+  .h1underline {
+    opacity: 0;
+    transform: translate3d(-100%,0,0);
+  }
+  header:hover .h1underline {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  div, button {
+    @apply rounded-lg;
+  }
+}
