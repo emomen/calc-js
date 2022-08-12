@@ -12,7 +12,7 @@ export default function App() {
       <header>
         <h1 className='text-9xl mt-32'>Calculator</h1>
       </header>
-      <section className='bg-zinc-700 p-10 rounded-lg drop-shadow-2xl mb-20'>
+      <section className='bg-zinc-700 p-10 rounded-lg drop-shadow-2xl mb-64'>
         <div className='bg-yellow-300 h-28 w-80 mb-5 flex flex-col items-end p-5 font-bold'>
           <p className="h-1/2 text-xl">{calc}</p>
           <p className="h-1/2 text-2xl">{answer}</p>
