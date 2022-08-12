@@ -20,29 +20,25 @@ export default function Button({lgBtn, innerText, calc, setCalc, answer, setAnsw
         const splitStr = str.split(' ')
         splitStr.pop()
         splitStr[0] = parseFloat(splitStr[0])
-        const spliceLocations = {}
-        for (let i = 1; i < splitStr.length; i += 2) {
-            splitStr[i + 1] = parseFloat(splitStr[i + 1])
-            if ('×÷'.includes(splitStr[i])) {
-                let answer
-                if (splitStr[i] === '×') {
-                    answer = operate(multiply, splitStr[i - 1], splitStr[i + 1])
-                } else {
-                    answer = operate(divide, splitStr[i - 1], splitStr[i + 1])
-                }
-                spliceLocations[i-1] = answer
+        let counter = 0
+        while (counter < splitStr.length) {
+            if ('−+'.includes(splitStr[counter])) {
+                splitStr[counter + 1] = parseFloat(splitStr[counter + 1])
+                counter++
+            } else if ('×÷'.includes(splitStr[counter])) {
+                splitStr[counter + 1] = parseFloat(splitStr[counter + 1])
+                let op = splitStr[counter] === '×' ? multiply : divide
+                let answer = operate(op, splitStr[counter - 1], splitStr[counter + 1])
+                splitStr.splice(counter - 1, 3, answer)
+            } else { // value is a number
+                counter++
             }
-        }
-        for (const key in spliceLocations) {
-            splitStr.splice(parseInt(key), 3, spliceLocations[key])
+            console.log(splitStr)
         }
         let firstOperand = splitStr[0]
-        for (let i = 1; i < splitStr.length; i+= 2) {
-            if (splitStr[i] === "+") {
-                firstOperand = operate(add, firstOperand, splitStr[i+1])
-            } else {
-                firstOperand = operate(subtract, firstOperand, splitStr[i+1])
-            }
+        for (let i = 1; i < splitStr.length; i += 2) {
+            let op = splitStr[counter] === '+' ? add : subtract
+            firstOperand = operate(op, firstOperand, splitStr[i + 1])
         }
         return firstOperand.toString()
     }

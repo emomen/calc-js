@@ -14,9 +14,9 @@ export default function App() {
         <section className='h1underline bg-black h-3 w-full opacity-0 hover:opacity-1 ease-in-out duration-300 mb-20'></section>
       </header>
       <section className='bg-zinc-700 p-10 rounded-lg drop-shadow-2xl mb-20'>
-        <div className='bg-yellow-300 h-28 w-80 mb-5 flex flex-col items-end p-5 font-bold text-3xl'>
-          <p className="h-1/2">{calc}</p>
-          <p className="h-1/2">{answer}</p>
+        <div className='bg-yellow-300 h-28 w-80 mb-5 flex flex-col items-end p-5 font-bold'>
+          <p className="h-1/2 text-xl">{calc}</p>
+          <p className="h-1/2 text-2xl">{answer}</p>
         </div>
         <div className='grid grid-cols-4 grid-rows-5 gap-5'>
           {buttons.map(bText => {
