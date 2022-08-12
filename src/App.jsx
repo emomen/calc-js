@@ -11,7 +11,6 @@ export default function App() {
     <main className='flex flex-col items-center w-screen h-screen justify-between'>
       <header>
         <h1 className='text-9xl mt-32'>Calculator</h1>
-        <section className='h1underline bg-black h-3 w-full opacity-0 hover:opacity-1 ease-in-out duration-300 mb-20'></section>
       </header>
       <section className='bg-zinc-700 p-10 rounded-lg drop-shadow-2xl mb-20'>
         <div className='bg-yellow-300 h-28 w-80 mb-5 flex flex-col items-end p-5 font-bold'>

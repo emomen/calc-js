@@ -33,11 +33,10 @@ export default function Button({lgBtn, innerText, calc, setCalc, answer, setAnsw
             } else { // value is a number
                 counter++
             }
-            console.log(splitStr)
         }
         let firstOperand = splitStr[0]
         for (let i = 1; i < splitStr.length; i += 2) {
-            let op = splitStr[counter] === '+' ? add : subtract
+            let op = splitStr[i] === '+' ? add : subtract
             firstOperand = operate(op, firstOperand, splitStr[i + 1])
         }
         return firstOperand.toString()
